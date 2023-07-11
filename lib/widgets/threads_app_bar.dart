@@ -11,7 +11,13 @@ class ThreadsAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              try {
+                if (Navigator.canPop(context)) {
+                  Navigator.of(context).pop();
+                }
+              } catch (e) {}
+            },
             child: Ink(
               padding: const EdgeInsets.all(5),
               child: const Row(
